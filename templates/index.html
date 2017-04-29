@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Search Box</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+	
+<div id="search_box" class="search_box">
+  	<form method="POST">
+  	<input type="search" id="sbx" name="searchbox" placeholder="Enter Your Query ..."/>
+  	<input type="submit" id="btn" class="material-icons" value="send" name="button"/>
+  	<span id="line"></span>
+	</form>
+</div>
+	
+
+	{% if results %}
+		<script>
+			$("form").css({"top": "10%"});
+		</script>
+		<div id="result_place" class="result_place">
+			{% for f in results %}
+        	<li><a href="/result/{{ f }}">{{ f }}</a></li>
+      		{% endfor %}
+      	</div>
+	{% endif %}
+
+
+
+
+
+
+
+  	
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+S[SEM=?vp] -> Det[SEM=?det] VP[SEM=?vp]
+VP[SEM=?pp] -> IV[SEM=?v] PP[SEM=?pp]
+PP[SEM=?np] -> P[SEM=?p] NP[SEM=?np]
+NP[SEM=(?n + ':' + ?pp)] -> N[SEM=?n] PP[SEM=?pp]
+PP[SEM=?np] -> P[SEM=?p] NP[SEM=?np]
+
+Det[SEM=''] -> 'What' | 'what'
+IV[SEM=''] -> 'is'
+P[SEM=''] -> 'the'
+N[SEM='"Place"'] -> 'capital' | 'Capital'
+P[SEM=''] -> 'of'
+NP[SEM='"India"'] -> 'India'| 'india' 
+
+
