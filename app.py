@@ -14,12 +14,15 @@ ret_value = []
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
+current_time = time.strftime("%d") + time.strftime("%m")
+print(current_time)
+
 @app.route("/",methods=['GET','POST'])
 def template_test():
 	del ret_value[:]
 	namee = ""
 	if request.form.get('searchbox') is "":
-		return render_template('index.html')
+		return render_template('index.html',doodle=current_time)
 	else:
 		query = request.form.get('searchbox')
 		query = str(query).lower()
@@ -60,7 +63,7 @@ def template_test():
 						ret_value.append(i)
 				print(ret_value)
 	
-	return render_template('index.html',results=ret_value)
+	return render_template('index.html',results=ret_value,doodle=current_time)
 
 
 @app.route('/result/<query>')

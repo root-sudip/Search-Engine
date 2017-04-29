@@ -9,6 +9,15 @@
 </head>
 
 <body>
+
+  {% if not results %}
+    {% if doodle %}
+    <img id="doodle" class="doodle" src="../static/static_img/{{ doodle }}.jpg" height="200px" width="400px">
+    
+    {% endif %}
+
+  {% endif %}
+
 	
 <div id="search_box" class="search_box">
   	<form method="POST">
@@ -17,7 +26,6 @@
   	<span id="line"></span>
 	</form>
 </div>
-	
 
 	{% if results %}
 		<script>
@@ -29,14 +37,5 @@
       		{% endfor %}
       	</div>
 	{% endif %}
-
-
-
-
-
-
-
-  	
-
 </body>
 </html>
