@@ -45,11 +45,12 @@
     outline: 0;
 }
 /*#F7836A
-#4A148C*/
+#4A148C
+#FFFFFF
+#F08080*/
 html, body {
-    background: #F08080;
+    background: #FFFFFF;
     text-decoration: none;
-    /*overflow: hidden;*/
     user-select: none;
 }
 form {
@@ -68,7 +69,7 @@ form {
     width: 546px;
     border: none;
     background: none;
-    color: white;
+    color: #5379fa;
     font-family: 'Roboto', sans-serif;
     font-size: 48px;
 }
@@ -89,7 +90,8 @@ form {
 #btn {
     width: 96px;
     height: 96px;
-    background: #F08080;
+    opacity: 0.7;
+    filter: alpha(opacity=50);
     color: transparent;
     font-size: 48px;
     text-indent: -100%;
@@ -100,7 +102,7 @@ form {
 #btn:focus {
     text-indent: 6px;
     color: white;
-    animation: btn-focus-anim .2s both;
+    animation: btn-focus-anim .1s both;
 }
 #line {
     position: absolute;
@@ -133,34 +135,56 @@ form {
 .result_place{
     position: absolute;
     top:40%;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     height: auto;
     width: 400px;
     left: 30%;
    /* display: none;*/
 }
 
+
 /* unvisited link */
 a:link {
-    color: red;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+    text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-    color: green;
+    color: red;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+    text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+    text-decoration: none;
 }
 
 /* selected link */
 a:active {
     color: blue;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+    text-decoration: none;
 }
 .doodle{
     position: absolute;
     top: 10%;
     left: 30%;
 }
+
+
+
+
+

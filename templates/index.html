@@ -2,21 +2,69 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Search Box</title>
+  <title>AlphaGo</title>
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="static/js/index.js"></script>
+    <style>
+    	@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+		@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+	.body{
+	position: absolute;
+	top: -1%;
+	left: -1%;
+	right: -1%;
+	bottom: -1%;
+	width: auto;
+	height: auto;
+	background-image: url(../static/static_img/cover.jpg);
+	background-size: cover;
+	-webkit-filter: blur(3px);
+	z-index: 0;
+	}
+
+
+	.header{
+	position: absolute;
+	left: 3%;
+	top: 3%;
+	z-index: 2;
+}
+
+.header div{
+
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+    </style>
+
+
 </head>
 
 <body>
 
-  {% if not results %}
-    {% if doodle %}
-    <img id="doodle" class="doodle" src="../static/static_img/{{ doodle }}.jpg" height="200px" width="400px">
-    
-    {% endif %}
+	  <div class="body"></div>
+	  <div class="header">
+			<div>Alpha<span>Go</span></div>
+		</div>
 
-  {% endif %}
+  		{% if not results %}
+    		{% if doodle is not none %}
+    			<img id="doodle" class="doodle" src="../static/static_img/{{ doodle }}.jpg" height="200px" width="400px">
+    
+    		{% endif %}
+
+  		{% endif %}
 
 	
 <div id="search_box" class="search_box">
@@ -34,6 +82,7 @@
 		<div id="result_place" class="result_place">
 			{% for f in results %}
         	<li><a href="/result/{{ f }}">{{ f }}</a></li>
+        	<br>
       		{% endfor %}
       	</div>
 	{% endif %}

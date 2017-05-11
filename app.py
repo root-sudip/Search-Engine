@@ -3,9 +3,11 @@ from nltk import load_parser
 import json
 import pymongo
 import os
+import os.path
 import time
 from bs4 import BeautifulSoup
 from difflib import SequenceMatcher
+
 app = Flask(__name__)
 
 lst = ['Dog','Apple','monkey','Apple.com','Balaibalan','balaguer','cat','Cigarette','Dell.com','Dell','Delkos','Delkash','Dellen','Delling','Dellys','Dalai_Lama_3904','delhi']
@@ -15,14 +17,21 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 current_time = time.strftime("%d") + time.strftime("%m")
-print(current_time)
+doodle_path = 'static/static_img/'
+if os.path.exists(doodle_path+current_time+'.jpg'):
+	doodle_value = current_time
+	print('found')
+else:
+	doodle_value = None;
+
+print('doodle : ',doodle_value)
 
 @app.route("/",methods=['GET','POST'])
 def template_test():
 	del ret_value[:]
 	namee = ""
 	if request.form.get('searchbox') is "":
-		return render_template('index.html',doodle=current_time)
+		return render_template('index.html',doodle=doodle_value)
 	else:
 		query = request.form.get('searchbox')
 		query = str(query).lower()
@@ -63,7 +72,7 @@ def template_test():
 						ret_value.append(i)
 				print(ret_value)
 	
-	return render_template('index.html',results=ret_value,doodle=current_time)
+	return render_template('index.html',results=ret_value,doodle=doodle_value)
 
 
 @app.route('/result/<query>')
